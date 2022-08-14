@@ -1,4 +1,4 @@
-package com.ecommerce.arolaz.Utils.S3BucketFileHandler.Config;
+package com.lawenforcement.legalcommute.outbound_ws.S3BucketFileHandler.config;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
