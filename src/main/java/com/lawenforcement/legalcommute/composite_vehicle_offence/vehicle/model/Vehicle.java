@@ -23,9 +23,6 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "vehicle_id", nullable = false)
-    private Long vehicleId;
-
     @Column(name = "camera_time_captured_at")
     private Timestamp cameraTimeCapturedAt;
 
@@ -35,13 +32,15 @@ public class Vehicle {
     @Column(name = "is_found_match")
     private byte isFoundMatch;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "status_id", nullable = false)
     private Status status;
 
-    @OneToMany(mappedBy = "vehicle",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<User> users;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_details_id", referencedColumnName = "id")
+//    private User user;
 
     @OneToMany(mappedBy = "vehicle")
     Set<MappedVehicleOffence> vehicleOffences;
+
 }

@@ -20,9 +20,6 @@ public class Offence {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "offence_id")
-    private Integer offenceId;
-
     @Column(name = "offence_type", nullable = false)
     private String offenceType;
 

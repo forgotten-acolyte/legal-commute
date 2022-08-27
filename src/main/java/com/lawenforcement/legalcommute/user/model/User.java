@@ -19,16 +19,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_details_id", nullable = false)
-    private Long userId;
-
     @Column
     private String userName;
 
     @Column
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "vehicle_id", nullable = false)
-    private Vehicle vehicle;
+//    @OneToOne(mappedBy = "user")
+//    private Vehicle vehicle;
+
 }
