@@ -5,7 +5,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.AmazonS3;
 
 import com.lawenforcement.legalcommute.outbound_ws.S3BucketFileHandler.model.response.ProductImgUrlResponseModel;
-import com.lawenforcement.legalcommute.outbound_ws.S3BucketFileHandler.service.AWSS3Service;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
