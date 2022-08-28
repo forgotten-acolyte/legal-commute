@@ -2,30 +2,32 @@ package com.lawenforcement.legalcommute.user.model;
 
 
 import com.lawenforcement.legalcommute.composite_vehicle_offence.vehicle.model.Vehicle;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "User_Details")
+@Entity(name = "user")
+@Table(name = "Coordinator")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@Builder
 public class User {
     @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //use @MapsId to make id as PK + FK
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "user_name")
     private String userName;
 
-    @Column
+    @Column(name = "password")
     private String password;
 
-//    @OneToOne(mappedBy = "user")
-//    private Vehicle vehicle;
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    private Vehicle vehicle;
 
 }

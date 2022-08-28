@@ -1,9 +1,7 @@
 package com.lawenforcement.legalcommute.composite_vehicle_offence.offence.model;
 
 import com.lawenforcement.legalcommute.composite_vehicle_offence.MappedVehicleOffence;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -13,6 +11,9 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Getter
+@Setter
+@Builder
 public class Offence {
 
     @Id
