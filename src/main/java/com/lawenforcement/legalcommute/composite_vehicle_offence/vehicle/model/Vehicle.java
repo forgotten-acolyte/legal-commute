@@ -24,6 +24,9 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+//    @Column(name = "status_id", nullable = false, insertable = false, updatable = false)
+//    private int statusId;
+
     @Column(name = "camera_time_captured_at")
     private Timestamp cameraTimeCapturedAt;
 
@@ -34,10 +37,10 @@ public class Vehicle {
     private byte isFoundMatch;
 
     @ManyToOne
-    @JoinColumn(name = "status_id", nullable = false)
+    @JoinColumn(name = "status_id")
     private Status status;
 
-    @OneToOne(mappedBy = "vehicle")
+    @OneToOne(mappedBy = "vehicle", cascade = CascadeType.ALL)
     private User user;
 
     @OneToMany(mappedBy = "vehicle")

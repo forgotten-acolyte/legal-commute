@@ -15,9 +15,9 @@ import javax.persistence.*;
 @Setter
 @Builder
 public class User {
+
     @Id
-    //use @MapsId to make id as PK + FK
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "user_name")
@@ -26,8 +26,8 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
 
 }

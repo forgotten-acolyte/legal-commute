@@ -1,22 +1,55 @@
 package com.lawenforcement.legalcommute.user.controller;
 
+import com.lawenforcement.legalcommute.user.model.request.UserLoginRequestModel;
+import com.lawenforcement.legalcommute.user.model.response.UserLoginResponseModel;
 import com.lawenforcement.legalcommute.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.List;
 
-@RestController
-@RequestMapping( name = "/api")
+@Controller
+//@SessionScope //perhaps to separate request and session scope.
+//@RequestMapping( name = "/api")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    @PostMapping(value="/login")
+    public ResponseEntity<UserLoginResponseModel> login() {
+
+        UserLoginResponseModel userLoginResponseModel = new UserLoginResponseModel();
+        //call localhost:4000/login to get the token
+        return  new ResponseEntity<UserLoginResponseModel>(userLoginResponseModel, HttpStatus.OK);
+    }
+//    @GetMapping(value = "/thymeleaf")
+//    public ModelAndView ModelAndView(@RequestParam(name="name", required=false, defaultValue="World") String name) {
+//        ModelAndView modelAndView = new ModelAndView("thymeleafTemplate");
+//        return modelAndView;
+//    }
+
+//    @Resource
+//    private WebClient webClient;
+//
+//    @Bean
+//    public WebClient getWebClient(WebClient.Builder webClientBuilder) {
+//        return webClientBuilder
+//                .baseUrl("https://reqres.in/api")
+//                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+//                .build();
+//    }
     @GetMapping(value = "/list")
     public ResponseEntity userDetails() {
 

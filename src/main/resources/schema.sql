@@ -8,6 +8,7 @@ create table Status
 
 INSERT INTO Status(status_type) VALUES
                                     ('unresolved'),
+                                    ('opened'),
                                     ('notified'),
                                     ('resolved'),
                                     ('reopened');
@@ -24,7 +25,8 @@ insert into Offence
 values
     ('stolen'),
     ('wanted'),
-    ('expired_license');
+    ('expired_license'),
+    ('other');
 --
 
 -- VEHICLE
@@ -44,18 +46,18 @@ values
     ( 1, null,'ABCK273M', 0),
     ( 2,'2021-08-09 13:57:00', '49H1-1394',0), -- notified
     ( 3,'2022-08-10 09:57:00','H2-1234M1',1),
-    ( 2,'2022-08-10 09:57:00','H2-1234M1',1);
+    ( 2,'2022-08-10 09:57:00','AKHH-3182',1);
 
 
 -- COORDINATOR
 create table Coordinator
 (
     id integer not null auto_increment,
-    vehicle_id integer not null,
     user_name varchar(255),
     password varchar(255),
-    primary key (id)
---     foreign key(vehicle_id) references Vehicle(id)
+    vehicle_id integer not null,
+    primary key (id),
+    foreign key(vehicle_id) references Vehicle(id)
 );
 
 INSERT INTO Coordinator
@@ -63,7 +65,8 @@ INSERT INTO Coordinator
 VALUES
     ('admin','admin', 1),
     ('john','johndoe', 2),
-    ('doe','dockon', 3);
+    ('doe','dockon',3 ),
+    ('dummy','alive', 4);
 
 -- Mapped_Vehicle_Offence
 create table Mapped_Vehicle_Offence
