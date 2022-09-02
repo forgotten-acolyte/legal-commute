@@ -1,10 +1,13 @@
 package com.lawenforcement.legalcommute.user.controller;
 
+import com.lawenforcement.legalcommute.composite_vehicle_offence.offence.model.request.CreateOffenceCaseRequestModel;
 import com.lawenforcement.legalcommute.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,21 +30,21 @@ public class UserController {
 //    }
 
     @GetMapping(value="/create-case")
-    public ModelAndView createANewCase(){
+    public ModelAndView createANewCase(@ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel){
         ModelAndView modelAndView = new ModelAndView("/pages/create_case");
         return modelAndView;
+    }
+
+    @PostMapping(value = "/submit-offence-case")
+    public ResponseEntity<String> submitOffenceCase(@ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel){
+        //save
+        return ResponseEntity.ok().body(String.valueOf(createOffenceCaseRequestModel.getOffenceType()));
     }
 
     @GetMapping(value="/fetch-execute")
     public ModelAndView fetchAndExecute(){
         ModelAndView modelAndView = new ModelAndView("/pages/fetch_execute");
         return modelAndView;
-    }
-
-
-    @PostMapping(value = "/submit-offence-case")
-    public ModelAndView submitOffenceCase(@RequestParam(value = "") ){
-
     }
     @GetMapping(value="/login")
     public ModelAndView ModelAndView(){
