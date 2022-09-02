@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <title>Create case</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/index.html">
+                <img th:src="@{logo.png}" alt="legal-commute" height="30">
+                </a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/index.html">Home</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cases <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a th:href="@{create_case.html}">Create new case</a></li>
+                <li><a href="@{fetch_execute.html}">Fetch images and Execute</a></li>
+                <li><a href="#">Update status</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+    <h1> Create new case</h1>
+    <form action="#" method="post">
+        
+      
+        <div class="container">
+          <label ><b>Name :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
+          <input type="text" placeholder="Enter full name" name="name" required>
+      
+          <label ><b>ID number :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
+          <input type="text" placeholder="Enter ID number" name="idnb" required>
+
+          <label ><b>Phone :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
+          <input type="text" placeholder="Enter phone number" name="phone" required>
+
+          <label ><b>License Plate :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
+          <input type="text" placeholder="Enter license plate" name="lp" required>
+          
+          <label ><b>Offense type :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
+          <select class="combobox">
+            <option value="1">Wanted</option>
+            <option value="2">Stolen</option>
+            <option value="3">Other</option> 
+          </select>
+          &nbsp; &nbsp;&nbsp; &nbsp;
+          <label ><b>Area :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
+          <select class="combobox">
+            <option value="1">D1</option>
+            <option value="2">D2</option>
+            <option value="3">D3</option> 
+            <option value="4">D4</option>
+            <option value="5">D5</option>
+            <option value="6">D6</option> 
+            <option value="7">D7</option>
+            <option value="8">D8</option>
+            <option value="9">D9</option>
+            <option value="10">D10</option>
+            <option value="11">D11</option>
+            <option value="12">D12</option> 
+          </select>
+
+              
+          <button type="submit">Save</button>
+        </div>
+      
+      </form>
+      </div>
+</body>
+</html>

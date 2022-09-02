@@ -9,5 +9,4 @@ class LegalCommuteApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

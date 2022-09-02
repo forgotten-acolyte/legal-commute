@@ -1,0 +1,25 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-ui
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: dummy
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    show-sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 1MB
+
