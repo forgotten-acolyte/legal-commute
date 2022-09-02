@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
 <link rel="stylesheet" href="css/main.css" th:href="@{css/main.css}" />
 <meta charset="utf-8" />
@@ -17,7 +17,7 @@
 		  	<br />
 		  	<label>Password:</label> <input type="password" name="password" />
 		  	<br />
-		  	 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+<!--		  	 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
 	        <input type="submit" value="Login"/>
 	      </form>		   	  
 	

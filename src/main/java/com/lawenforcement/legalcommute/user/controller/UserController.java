@@ -1,22 +1,13 @@
 package com.lawenforcement.legalcommute.user.controller;
 
-import com.lawenforcement.legalcommute.user.model.request.UserLoginRequestModel;
-import com.lawenforcement.legalcommute.user.model.response.UserLoginResponseModel;
 import com.lawenforcement.legalcommute.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.annotation.SessionScope;
-import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
@@ -27,18 +18,37 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value="/login")
-    public ResponseEntity<UserLoginResponseModel> login() {
-
-        UserLoginResponseModel userLoginResponseModel = new UserLoginResponseModel();
-        //call localhost:4000/login to get the token
-        return  new ResponseEntity<UserLoginResponseModel>(userLoginResponseModel, HttpStatus.OK);
-    }
-//    @GetMapping(value = "/thymeleaf")
-//    public ModelAndView ModelAndView(@RequestParam(name="name", required=false, defaultValue="World") String name) {
-//        ModelAndView modelAndView = new ModelAndView("thymeleafTemplate");
-//        return modelAndView;
+//    @PostMapping(value="/login")
+//    public ResponseEntity<UserLoginResponseModel> login() {
+//
+//        UserLoginResponseModel userLoginResponseModel = new UserLoginResponseModel();
+//        //call localhost:4000/login to get the token
+//        return  new ResponseEntity<UserLoginResponseModel>(userLoginResponseModel, HttpStatus.OK);
 //    }
+
+    @GetMapping(value="/create-case")
+    public ModelAndView createANewCase(){
+        ModelAndView modelAndView = new ModelAndView("/pages/create_case");
+        return modelAndView;
+    }
+
+    @GetMapping(value="/fetch-execute")
+    public ModelAndView fetchAndExecute(){
+        ModelAndView modelAndView = new ModelAndView("/pages/fetch_execute");
+        return modelAndView;
+    }
+
+    @GetMapping(value="/login")
+    public ModelAndView ModelAndView(){
+        ModelAndView modelAndView = new ModelAndView("login");
+        return modelAndView;
+    }
+    @GetMapping(value = "/homepage")
+    public ModelAndView ModelAndView(@RequestParam(name="name", required=false, defaultValue="World") String name) {
+        ModelAndView modelAndView = new ModelAndView("homepage");
+//        modelAndView.addObject("name", "alibaba");
+        return modelAndView;
+    }
 
 //    @Resource
 //    private WebClient webClient;
@@ -49,7 +59,7 @@ public class UserController {
 //                .baseUrl("https://reqres.in/api")
 //                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 //                .build();
-//    }
+//    }m
     @GetMapping(value = "/list")
     public ResponseEntity userDetails() {
 
