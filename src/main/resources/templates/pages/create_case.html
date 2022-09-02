@@ -16,29 +16,29 @@
     </div>
       <div class="container">
           <h1> Create new case</h1>
-        <form th:action="@{/submit-offence-case}" method="post" th:object="${createOffenceCaseRequestModel}">
+        <form th:action="@{/submit-offence-case/}" method="post" modelAttribute="createOffenceCaseRequestModel">
             <div class="container">
               <label ><b>Name :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
-              <input type="text" placeholder="Enter full name" name="name" required th:field="*{name}">
+              <input id="name" type="text" placeholder="Enter full name" name="name" required th:field="*{createOffenceCaseRequestModel.name}">
 
               <label ><b>ID number :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-              <input type="text" placeholder="Enter ID number" name="idnb" required th:field="*{idNumber}">
+              <input type="text" placeholder="Enter ID number" name="idnb" required th:field="*{createOffenceCaseRequestModel.idNumber}">
 
               <label ><b>Phone :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
-              <input type="text" placeholder="Enter phone number" name="phone" required th:field="*{phone}">
+              <input type="text" placeholder="Enter phone number" name="phone" required th:field="*{createOffenceCaseRequestModel.phone}">
 
               <label ><b>License Plate :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
-              <input type="text" placeholder="Enter license plate" name="lp" required th:field="*{licensePlateNumber}">
+              <input type="text" placeholder="Enter license plate" name="lp" required th:field="*{createOffenceCaseRequestModel.licensePlateNumber}">
 
               <label ><b>Offense type :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
-              <select class="combobox" th:field="*{offenceType}">
-                <option value="1">Wanted</option>
-                <option value="2">Stolen</option>
-                <option value="3">Other</option>
+              <select class="combobox" th:field="*{createOffenceCaseRequestModel.offenceType}">
+                <option value="Wanted">Wanted</option>
+                <option value="Stolen">Stolen</option>
+                <option value="Other">Other</option>
               </select>
               &nbsp; &nbsp;&nbsp; &nbsp;
               <label ><b>Area :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
-              <select class="combobox" th:field="*{area}">
+              <select class="combobox" th:field="*{createOffenceCaseRequestModel.area}">
                 <option value="1">D1</option>
                 <option value="2">D2</option>
                 <option value="3">D3</option>
@@ -52,7 +52,6 @@
                 <option value="11">D11</option>
                 <option value="12">D12</option>
               </select>
-
 
               <button type="submit">Save</button>
             </div>
