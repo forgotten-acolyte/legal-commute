@@ -11,25 +11,9 @@
     <title>Fetch and Execute</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/index.html">
-                <img src="/imgs/logo.png" alt="legal-commute" height="30">
-                </a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/index.html">Home</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cases <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/view/create_case.html">Create new case</a></li>
-                <li><a href="/view/fetch_execute.html">Fetch images and Execute</a></li>
-                <li><a href="#">Update status</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <div th:insert="/common/header :: header">
+
+    </div>
 
       <div class="container" >
         <h2>Captured vehicles</h2>

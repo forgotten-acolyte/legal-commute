@@ -38,6 +38,11 @@ public class UserController {
         return modelAndView;
     }
 
+
+    @PostMapping(value = "/submit-offence-case")
+    public ModelAndView submitOffenceCase(@RequestParam(value = "") ){
+
+    }
     @GetMapping(value="/login")
     public ModelAndView ModelAndView(){
         ModelAndView modelAndView = new ModelAndView("login");
