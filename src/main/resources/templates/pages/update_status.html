@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <script th:src="@{js/update_status_checkbox.js}"></script>
+    <title>Update status</title>
+</head>
+<body>
+<div th:insert="/common/header :: header"></div>
+<div class="container">
+    <h2>Update status</h2>
+    <!--table-->
+    <div class="container">
+        <div class="row">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Select</th>
+                        <th scope="col">Owner ID</th>
+                        <th scope="col">License Plate</th>
+                        <th scope="col">Offence</th>
+                        <th scope="col">Checkpoints</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" name="cbox">
+
+                            </div>
+                        </td>
+                        <td>123456789</td>
+                        <td>ABC-123</td>
+                        <td>Stolen</td>
+                        <td>C1 , C2</td>
+                        <td>Resolved</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck2" name="cbox">
+
+                            </div>
+                        </td>
+                        <td>123456789</td>
+                        <td>ABC-123</td>
+                        <td>Wanted</td>
+                        <td>C1, C3</td>
+                        <td>Notified</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-default" onclick="checkAll()">Select All</button>
+    <button type="button" class="btn btn-default" onclick="uncheckAll()">Clear</button>
+
+    <form method="post" action="#">
+        <button type="submit"> Resolve </button>
+    </form>
+</div>
+
+
+</body>
+</html>

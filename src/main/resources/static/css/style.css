@@ -29,6 +29,9 @@ form {
     cursor: pointer;
     width: 10%;
   }
+  .btn {
+    margin: 0px 0px;
+  }
   
   /* Add a hover effect for buttons */
   button:hover {
@@ -88,3 +91,15 @@ form {
     .table-wrapper-scroll-y {
     display: block;
     }
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+/*
+ .table-image {
+   td,
+   th {
+     vertical-align: middle;
+   }
+}*/
