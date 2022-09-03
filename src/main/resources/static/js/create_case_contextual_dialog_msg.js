@@ -7,10 +7,6 @@ $(document).ready(function(){
         button.setAttribute("data-toggle", "modal");
         button.setAttribute("id", "dynamicButton");
 
-        // 3. Add event handler
-        // button.addEventListener ("click", function() {
-        //     alert("did something");
-        // });
         let popupName = getSpecificPopupModal(result);
 
         // let stringHTML = '<div th:include= \"'+popupName+'\" id="myModal">\n' + '</div>';
