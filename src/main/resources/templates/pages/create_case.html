@@ -5,41 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <link rel="stylesheet" th:href="@{css/style.css}">
     <script th:src="@{js/create_case_contextual_dialog_msg.js}"></script>
     <title>Create case</title>
 </head>
 <body>
-    <div th:insert="/common/header :: header">
-    </div>
-      <div class="container">
-          <h1> Create new case</h1>
-        <form th:action="@{/submit-offence-case/}" method="post" modelAttribute="createOffenceCaseRequestModel">
-            <div class="container">
-              <label ><b>Name :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
-              <input id="name" type="text" placeholder="Enter full name" name="name" required th:field="*{createOffenceCaseRequestModel.name}">
+<div th:insert="/common/header :: header">
+</div>
+<div class="container">
+    <h1> Create new case</h1>
+    <form method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">
+        <div class="container">
+            <label><b>Name :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
+            <input id="name" type="text" placeholder="Enter full name" name="name" required
+                   th:field="*{createOffenceCaseRequestModel.name}">
 
-              <label ><b>ID number :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-              <input type="text" placeholder="Enter ID number" name="idnb" required th:field="*{createOffenceCaseRequestModel.idNumber}">
+            <label><b>ID number :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
+            <input type="text" placeholder="Enter ID number" name="idnb" required
+                   th:field="*{createOffenceCaseRequestModel.idNumber}">
 
-              <label ><b>Phone :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
-              <input type="text" placeholder="Enter phone number" name="phone" required th:field="*{createOffenceCaseRequestModel.phone}">
+            <label><b>Phone :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
+            <input type="text" placeholder="Enter phone number" name="phone" required
+                   th:field="*{createOffenceCaseRequestModel.phone}">
 
-              <label ><b>License Plate :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
-              <input type="text" placeholder="Enter license plate" name="lp" required th:field="*{createOffenceCaseRequestModel.licensePlateNumber}">
+            <label><b>License Plate :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
+            <input type="text" placeholder="Enter license plate" name="lp" required
+                   th:field="*{createOffenceCaseRequestModel.licensePlateNumber}">
 
-              <label ><b>Offense type :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
-              <select class="combobox" th:field="*{createOffenceCaseRequestModel.offenceType}">
+            <label><b>Offense type :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
+            <select class="combobox" th:field="*{createOffenceCaseRequestModel.offenceType}">
                 <option value="Wanted">Wanted</option>
                 <option value="Stolen">Stolen</option>
                 <option value="Other">Other</option>
-              </select>
-              &nbsp; &nbsp;&nbsp; &nbsp;
-              <label ><b>Area :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
-              <select class="combobox" th:field="*{createOffenceCaseRequestModel.area}">
+            </select>
+            &nbsp; &nbsp;&nbsp; &nbsp;
+            <label><b>Area :&nbsp; &nbsp;&nbsp; &nbsp;</b></label>
+            <select class="combobox" th:field="*{createOffenceCaseRequestModel.area}">
                 <option value="1">D1</option>
                 <option value="2">D2</option>
                 <option value="3">D3</option>
@@ -52,13 +57,19 @@
                 <option value="10">D10</option>
                 <option value="11">D11</option>
                 <option value="12">D12</option>
-              </select>
+            </select>
 
-              <button onclick="openModalLink()" id="myBtn" data-toggle="modal" data-target="#duplicateDataModal" type="submit">Save</button>
-            </div>
+            <button id="myBtn" data-toggle="modal" type="submit">Save</button>
+        </div>
 
-          </form>
-      </div>
+        <!-- HIDDEN input fields-->
+        <input type="hidden" id="postSubmitted" name="postSubmitted" value="1">
+    </form>
+
+</div>
+
+<div th:include="/modal_popup/create_case_popup:: popup" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
 
 </body>
 </html>

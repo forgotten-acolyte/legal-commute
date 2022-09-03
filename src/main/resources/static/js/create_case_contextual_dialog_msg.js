@@ -1,6 +1,11 @@
-
 $(document).ready(function(){
-    $("#myBtn").click(openModalLink());
+
+
+    $("#myBtn").click(function(){
+        $("#exampleModal").load('/Users/trung/Documents/Advanced SWE/backend/legal-commute/src/main/resources/templates/modal_popup/test.html', function() {
+            $("#exampleModal").dialog("open");
+        });
+    });
     // $.get('open.html?id='+id, function(data) {
     //     if(data == 'OK') {
     //         window.open(url);
@@ -9,7 +14,7 @@ $(document).ready(function(){
 });
 
 function openModalLink(){
-    $("#duplicateDataModal").load('/templates/modal_popup/duplicate_data.html', function() {
-        $("#duplicateDataModal").dialog("open");
-    });
+    // $("#duplicateDataModal").load('http://localhost:8080/modal/duplicate_data/', function() {
+    //     $("#duplicateDataModal").dialog("open");
+    // });
 }
