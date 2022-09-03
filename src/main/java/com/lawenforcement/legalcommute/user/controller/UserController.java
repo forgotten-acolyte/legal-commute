@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 //@SessionScope //perhaps to separate request and session scope.
@@ -30,16 +32,21 @@ public class UserController {
 //    }
 
     @GetMapping(value="/create-case")
-    public ModelAndView createANewCase(@ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
-        ModelAndView modelAndView = new ModelAndView("/pages/create_case");
-//        if (model.containsAttribute("existing")){
-//            modelAndView.setV
-//        }
+    @ModelAttribute("result")
+    public ModelAndView createANewCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel){
+        Object result = httpSession.getAttribute("result");
+        ModelAndView modelAndView =  new ModelAndView("/pages/create_case");
+
+        if (!Objects.isNull(result)){
+            modelAndView.addObject("result", result.toString());
+            httpSession.removeAttribute("result");
+        }
+
         return modelAndView;
     }
 
     @PostMapping(value = "/submit-offence-case")
-    public String submitOffenceCase(@ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
+    public String submitOffenceCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
         //validate token
         //validate data
         //persist into db
@@ -48,6 +55,8 @@ public class UserController {
         model.addAttribute("existing", "AKHKH-412124");
         model.addAttribute("saved", "AKHKH-412124");
         model.addAttribute("incorrect", "AKHKH-412124");
+
+        httpSession.setAttribute("result", "incorrect");
         return "redirect:/create-case";
     }
 

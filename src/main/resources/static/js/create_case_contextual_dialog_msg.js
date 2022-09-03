@@ -1,20 +1,35 @@
 $(document).ready(function(){
-
-
-    $("#myBtn").click(function(){
-        $("#exampleModal").load('/Users/trung/Documents/Advanced SWE/backend/legal-commute/src/main/resources/templates/modal_popup/test.html', function() {
-            $("#exampleModal").dialog("open");
-        });
-    });
-    // $.get('open.html?id='+id, function(data) {
-    //     if(data == 'OK') {
-    //         window.open(url);
-    //     }
-    // }, 'text');
+    let result = $("#postSubmitted").val();
+    if(result){
+        let popupName = getSpecificPopupModal(result);
+        $("#myBtn").attr("data-target","#myModal");
+        let stringHTML = '<div th:include= \"'+popupName+'\" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n' + '</div>';
+        $($.parseHTML(stringHTML)).insertAfter($("#insertAfter" ));
+        $("#myBtn").trigger('click');
+    }
 });
 
-function openModalLink(){
-    // $("#duplicateDataModal").load('http://localhost:8080/modal/duplicate_data/', function() {
-    //     $("#duplicateDataModal").dialog("open");
-    // });
+function getSpecificPopupModal(result){
+    if(!result)
+        return '';
+
+    let popupName = '';
+
+    switch (result){
+        case "incorrect":{
+            popupName = "/modal_popup/incorrect:: popup";
+            break;
+        }
+        case "duplicate":{
+            popupName = "/modal_popup/duplicate_data:: popup";
+            break;
+        }
+        case "saved":{
+            popupName = "/modal_popup/saved_successful:: popup";
+            break;
+        }
+        default:
+            break;
+    }
+    return popupName;
 }

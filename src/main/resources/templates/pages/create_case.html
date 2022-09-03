@@ -18,7 +18,7 @@
 </div>
 <div class="container">
     <h1> Create new case</h1>
-    <form method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">
+    <form id="insertAfter" method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">
         <div class="container">
             <label><b>Name :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
             <input id="name" type="text" placeholder="Enter full name" name="name" required
@@ -63,12 +63,9 @@
         </div>
 
         <!-- HIDDEN input fields-->
-        <input type="hidden" id="postSubmitted" name="postSubmitted" value="1">
+        <input th:if="${result}" th:value="${result}" type="hidden" id="postSubmitted" name="postSubmitted">
     </form>
 
-</div>
-
-<div th:include="/modal_popup/create_case_popup:: popup" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 </div>
 
 </body>
