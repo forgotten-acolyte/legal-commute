@@ -47,6 +47,12 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("/pages/fetch_execute");
         return modelAndView;
     }
+    @GetMapping(value="/update-status")
+    public ModelAndView updateStatus(){
+        ModelAndView modelAndView = new ModelAndView("/pages/update_status");
+        return modelAndView;
+    }
+
     @GetMapping(value="/login")
     public ModelAndView ModelAndView(){
         ModelAndView modelAndView = new ModelAndView("login");
