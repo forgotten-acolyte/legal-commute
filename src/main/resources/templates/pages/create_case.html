@@ -66,6 +66,9 @@
         <input th:if="${result}" th:value="${result}" type="hidden" id="postSubmitted" name="postSubmitted">
     </form>
 
+    <button style="display: none;" type="button" data-target="#myModal" data-toggle="modal" id="dynamicButton"></button>
+    <div th:insert="/modal_popup/incorrect:: popup"></div>
+
 </div>
 
 </body>

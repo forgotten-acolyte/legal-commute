@@ -6,20 +6,20 @@ $(document).ready(function(){
         button.setAttribute("data-target", "#myModal");
         button.setAttribute("data-toggle", "modal");
         button.setAttribute("id", "dynamicButton");
+        button.setAttribute("type", "button");
+        button.setAttribute("style", "display:none;");
 
         let popupName = getSpecificPopupModal(result);
 
-        // let stringHTML = '<div th:include= \"'+popupName+'\" id="myModal">\n' + '</div>';
-
         var div = document.createElement("div");
-        div.setAttribute("id", "myModal");
-        div.setAttribute("th:include", popupName);
+        div.setAttribute("th:insert", popupName);
 
+        //append
         var body = document.getElementsByTagName("body")[0];
         body.appendChild(button);
         body.appendChild(div);
 
-        $("#dynamicButton").trigger('click');
+        document.getElementById("dynamicButton").click();
     }
 });
 
