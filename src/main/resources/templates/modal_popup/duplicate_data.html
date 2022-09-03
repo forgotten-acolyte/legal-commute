@@ -2,16 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create case popup</title>
-    <script th:src="@{js/create_case_contextual_dialog_msg.js}"></script>
-
+    <title>Create case result popup</title>
 </head>
 <body>
-<div id="myModal" class="modal" tabindex="-1" role="dialog">
+<div th:fragment="popup" id="duplicateDataModal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">Duplicate data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
