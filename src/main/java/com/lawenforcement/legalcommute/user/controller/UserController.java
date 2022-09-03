@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,15 +30,25 @@ public class UserController {
 //    }
 
     @GetMapping(value="/create-case")
-    public ModelAndView createANewCase(@ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel){
+    public ModelAndView createANewCase(@ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
         ModelAndView modelAndView = new ModelAndView("/pages/create_case");
+//        if (model.containsAttribute("existing")){
+//            modelAndView.setV
+//        }
         return modelAndView;
     }
 
     @PostMapping(value = "/submit-offence-case")
-    public ResponseEntity<String> submitOffenceCase(@ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel){
-        //save
-        return ResponseEntity.ok().body(String.valueOf(createOffenceCaseRequestModel.getOffenceType()));
+    public String submitOffenceCase(@ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
+        //validate token
+        //validate data
+        //persist into db
+        //        return ResponseEntity.ok().body(String.valueOf(createOffenceCaseRequestModel.getOffenceType()));
+        //1. license plate with the same number already exists
+        model.addAttribute("existing", "AKHKH-412124");
+        model.addAttribute("saved", "AKHKH-412124");
+        model.addAttribute("incorrect", "AKHKH-412124");
+        return "redirect:/create-case";
     }
 
     @GetMapping(value="/fetch-execute")
@@ -47,6 +56,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("/pages/fetch_execute");
         return modelAndView;
     }
+
     @GetMapping(value="/update-status")
     public ModelAndView updateStatus(){
         ModelAndView modelAndView = new ModelAndView("/pages/update_status");
