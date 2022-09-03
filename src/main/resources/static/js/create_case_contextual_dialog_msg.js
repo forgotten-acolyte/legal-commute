@@ -11,13 +11,9 @@ $(document).ready(function(){
 
         let popupName = getSpecificPopupModal(result);
 
-        var div = document.createElement("div");
-        div.setAttribute("th:insert", popupName);
-
         //append
         var body = document.getElementsByTagName("body")[0];
         body.appendChild(button);
-        body.appendChild(div);
 
         document.getElementById("dynamicButton").click();
     }
