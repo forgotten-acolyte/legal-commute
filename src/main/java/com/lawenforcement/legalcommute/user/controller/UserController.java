@@ -31,6 +31,11 @@ public class UserController {
 //        return  new ResponseEntity<UserLoginResponseModel>(userLoginResponseModel, HttpStatus.OK);
 //    }
 
+    @PostMapping(value = "/create-case/validate-field/")
+    public String validateField(@RequestBody Model model){
+        return  "";
+    }
+
     @GetMapping(value="/create-case")
     @ModelAttribute("result")
     public ModelAndView createANewCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel){
