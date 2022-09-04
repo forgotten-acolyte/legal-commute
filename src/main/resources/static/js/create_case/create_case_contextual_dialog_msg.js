@@ -9,11 +9,15 @@ $(document).ready(function(){
         button.setAttribute("type", "button");
         button.setAttribute("style", "display:none;");
 
+        //2. create the div
         let popupName = getSpecificPopupModal(result);
-
+        var div = document.createElement("div");
+        // div.setAttribute("id", "myModal");
+        div.setAttribute("th:replace", popupName);
         //append
         var body = document.getElementsByTagName("body")[0];
         body.appendChild(button);
+        body.appendChild(div);
 
         document.getElementById("dynamicButton").click();
     }
@@ -23,7 +27,7 @@ function getSpecificPopupModal(result){
     if(!result)
         return '';
 
-    let popupName = '';
+    let popupName = "";
 
     switch (result){
         case "incorrect":{

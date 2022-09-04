@@ -31,9 +31,9 @@ public class UserController {
 //        return  new ResponseEntity<UserLoginResponseModel>(userLoginResponseModel, HttpStatus.OK);
 //    }
 
-    @PostMapping(value = "/create-case/validate-field/")
-    public String validateField(@RequestBody Model model){
-        return  "";
+    @PostMapping(value = "/create-case/validate-field")
+    public String validateField(Model model, @RequestParam(value = "idCard") String idCard, @RequestParam(value = "licensePlateNumber") String licensePlateNumber){
+        return  "DUPLICATE";
     }
 
     @GetMapping(value="/create-case")
@@ -46,7 +46,6 @@ public class UserController {
             modelAndView.addObject("result", result.toString());
             httpSession.removeAttribute("result");
         }
-
         return modelAndView;
     }
 
