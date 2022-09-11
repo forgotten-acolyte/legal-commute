@@ -1,6 +1,7 @@
 package com.lawenforcement.legalcommute.user.controller;
 
 import com.lawenforcement.legalcommute.composite_vehicle_offence.offence.model.request.CreateOffenceCaseRequestModel;
+import com.lawenforcement.legalcommute.composite_vehicle_offence.offence.model.response.ResultantHtmlContent;
 import com.lawenforcement.legalcommute.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,16 +40,18 @@ public class UserController {
 //        return  modelAndView;
 //    }
 
-    @GetMapping(value="/create-case")
-    @ModelAttribute("result")
-    public ModelAndView createANewCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel){
-        Object result = httpSession.getAttribute("result");
-        ModelAndView modelAndView =  new ModelAndView("/pages/create_case");
-
-        if (!Objects.isNull(result)){
-            modelAndView.addObject("result", result.toString());
+    private void constructModelAndViewAttributes(HttpSession httpSession, ModelAndView modelAndView){
+        if (httpSession.getAttribute("result") != null){
+            modelAndView.addObject("result", httpSession.getAttribute("result"));
             httpSession.removeAttribute("result");
         }
+    }
+
+    @GetMapping(value="/create-case")
+    @ModelAttribute("result")
+    public ModelAndView createANewCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, @ModelAttribute ResultantHtmlContent resultantHtmlContent){
+        ModelAndView modelAndView =  new ModelAndView("/pages/create_case");
+        constructModelAndViewAttributes(httpSession, modelAndView);
         return modelAndView;
     }
 
@@ -57,13 +60,7 @@ public class UserController {
         //validate token
         //validate data
         //persist into db
-        //        return ResponseEntity.oak().body(String.valueOf(createOffenceCaseRequestModel.getOffenceType()));
-        //1. license plate with the same number already exists
-        model.addAttribute("existing", "AKHKH-412124");
-        model.addAttribute("saved", "AKHKH-412124");
-        model.addAttribute("incorrect", "AKHKH-412124");
-
-        httpSession.setAttribute("result", "incorrect");
+        httpSession.setAttribute("result","saved");
         return "redirect:/create-case";
     }
 
