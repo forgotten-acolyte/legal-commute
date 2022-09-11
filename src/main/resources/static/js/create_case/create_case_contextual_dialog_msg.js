@@ -9,11 +9,11 @@ $(document).ready(function(){
         button.setAttribute("type", "button");
         button.setAttribute("style", "display:none;");
 
+        //2. create the div
         let popupName = getSpecificPopupModal(result);
-
         var div = document.createElement("div");
-        div.setAttribute("th:insert", popupName);
-
+        // div.setAttribute("id", "myModal");
+        div.setAttribute("th:replace", popupName);
         //append
         var body = document.getElementsByTagName("body")[0];
         body.appendChild(button);
@@ -22,28 +22,3 @@ $(document).ready(function(){
         document.getElementById("dynamicButton").click();
     }
 });
-
-function getSpecificPopupModal(result){
-    if(!result)
-        return '';
-
-    let popupName = '';
-
-    switch (result){
-        case "incorrect":{
-            popupName = "/modal_popup/incorrect:: popup";
-            break;
-        }
-        case "duplicate":{
-            popupName = "/modal_popup/duplicate_data:: popup";
-            break;
-        }
-        case "saved":{
-            popupName = "/modal_popup/saved_successful:: popup";
-            break;
-        }
-        default:
-            break;
-    }
-    return popupName;
-}

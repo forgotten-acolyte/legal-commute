@@ -2,7 +2,6 @@ package com.lawenforcement.legalcommute.composite_vehicle_offence.vehicle.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.lawenforcement.legalcommute.composite_vehicle_offence.MappedVehicleOffence;
 import com.lawenforcement.legalcommute.status.model.Status;
 import com.lawenforcement.legalcommute.user.model.User;
 import lombok.*;
@@ -41,8 +40,5 @@ public class Vehicle {
     @OneToOne(mappedBy = "vehicle", cascade = CascadeType.ALL)
     private User user;
 
-    @OneToMany(mappedBy = "vehicle")
-    @JsonManagedReference
-    Set<MappedVehicleOffence> vehicleOffences;
 
 }
