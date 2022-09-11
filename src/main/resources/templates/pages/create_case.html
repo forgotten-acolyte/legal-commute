@@ -10,16 +10,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <link rel="stylesheet" th:href="@{css/style.css}">
-    <script th:src="@{js/create_case/create_case_contextual_dialog_msg.js}"></script>
+<!--    <script th:src="@{js/create_case/create_case_contextual_dialog_msg.js}"></script>-->
     <script th:src="@{js/create_case/formValidator.js}"></script>
     <title>Create case</title>
 </head>
+
 <body>
 <div th:insert="/common/header :: headerForm">
 </div>
 <div class="container">
     <h1> Create new case</h1>
-    <form onsubmit="return submittedFieldValidation(this);" id="insertAfter" method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">
+<!--    <form onsubmit="return submittedFieldValidation(this);" method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">-->
+        <form onsubmit="return submittedFieldValidation(this);" method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">
         <div class="container">
             <label><b>Name :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
             <input id="name" type="text" placeholder="Enter full name" name="name" required
@@ -64,10 +66,15 @@
         </div>
 
         <!-- HIDDEN input fields-->
-        <input th:if="${result}" th:value="${result}" type="hidden" id="postSubmitted" name="postSubmitted">
+<!--        <input th:if="${result}" th:value="${result}" type="hidden" id="postSubmitted" name="postSubmitted">-->
     </form>
 
-    <div id="modalDialog" th:insert="/modal_popup/incorrect:: popup"></div>
+<!--    <button style="display: none;" id="dynamicButton"></button>-->
+<!--    <button style="visibility: hidden;" id="dynamicButton"></button>-->
+<!--    <div style="display: none;" class="modal-dialog" role="document" id="modalDialog"></div>-->
+<!--    <div style="visibility: hidden;" class="modal-dialog" role="document" id="modalDialog"></div>-->
+
+
 
 </div>
 

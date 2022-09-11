@@ -22,28 +22,3 @@ $(document).ready(function(){
         document.getElementById("dynamicButton").click();
     }
 });
-
-function getSpecificPopupModal(result){
-    if(!result)
-        return '';
-
-    let popupName = "";
-
-    switch (result){
-        case "incorrect":{
-            popupName = "/modal_popup/incorrect:: popup";
-            break;
-        }
-        case "duplicate":{
-            popupName = "/modal_popup/duplicate_data:: popup";
-            break;
-        }
-        case "saved":{
-            popupName = "/modal_popup/saved_successful:: popup";
-            break;
-        }
-        default:
-            break;
-    }
-    return popupName;
-}
