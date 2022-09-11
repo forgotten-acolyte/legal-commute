@@ -31,6 +31,14 @@ public class UserController {
 //        return  new ResponseEntity<UserLoginResponseModel>(userLoginResponseModel, HttpStatus.OK);
 //    }
 
+//    @PostMapping(value = "/create-case/validate-field/")
+//    @ResponseBody
+//    public ModelAndView validateField(HttpSession httpSession, Model model, @RequestParam(value = "idCardNumber") String idCard, @RequestParam(value = "licensePlateNumber") String licensePlateNumber){
+//        ModelAndView modelAndView =  new ModelAndView("redirect:/create-case");
+//        modelAndView.addObject("result", "DUPLICATE");
+//        return  modelAndView;
+//    }
+
     @GetMapping(value="/create-case")
     @ModelAttribute("result")
     public ModelAndView createANewCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel){
@@ -41,7 +49,6 @@ public class UserController {
             modelAndView.addObject("result", result.toString());
             httpSession.removeAttribute("result");
         }
-
         return modelAndView;
     }
 
@@ -50,7 +57,7 @@ public class UserController {
         //validate token
         //validate data
         //persist into db
-        //        return ResponseEntity.ok().body(String.valueOf(createOffenceCaseRequestModel.getOffenceType()));
+        //        return ResponseEntity.oak().body(String.valueOf(createOffenceCaseRequestModel.getOffenceType()));
         //1. license plate with the same number already exists
         model.addAttribute("existing", "AKHKH-412124");
         model.addAttribute("saved", "AKHKH-412124");
