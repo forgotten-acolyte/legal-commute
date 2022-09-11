@@ -129,7 +129,7 @@ function buildButtonAndDialogThenTriggerClick() {
     }
     if (!document.getElementById(buttonAndModalId)) {
         body.appendChild(dialogHtmlContent);
-        $("#" + buttonAndModalId)[0].css({
+        $("#" + buttonAndModalId).css({
             'position': 'fixed',
             'top': 0,
             'right': 0,
@@ -177,15 +177,6 @@ function buildDialogModal(buttonAndModalId, response) {
     dialogHtmlContent.setAttribute("tabindex", "0");
     // dialogHtmlContent.setAttribute("data-backdrop", "false");
     dialogHtmlContent.setAttribute("data-background", "true");
-    // // dialogHtmlContent.setAttribute("style", "display: none;")
-    // dialogHtmlContent.setAttribute("style", "position: fixed;");
-    // dialogHtmlContent.setAttribute("style","top: 0;");
-    // dialogHtmlContent.setAttribute("style","right: 0;");
-    // dialogHtmlContent.setAttribute("style","bottom: 0;");
-    // dialogHtmlContent.setAttribute("style","left: 0;");
-    // dialogHtmlContent.setAttribute("style","z-index: 1050;");
-    // dialogHtmlContent.setAttribute("style","overflow: hidden;");
-    // dialogHtmlContent.setAttribute("style","outline : 0;");
 
     // $this = dialogHtmlContent;
 
