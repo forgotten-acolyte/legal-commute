@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Controller
-//@SessionScope //perhaps to separate request and session scope.
+//@SessionScope // session scope.
 //@RequestMapping( name = "/api")
 public class UserController {
 
@@ -38,18 +38,7 @@ public class UserController {
 //        UserLoginResponseModel userLoginResponseModel = new UserLoginResponseModel();
 //        //call localhost:4000/login to get the token
 //        return  new ResponseEntity<UserLoginResponseModel>(userLoginResponseModel, HttpStatus.OK);
-//    }
-
-//    @PostMapping(value = "/create-case/validate-field/")
-//    @ResponseBody
-//    public ModelAndView validateField(HttpSession httpSession, Model model, @RequestParam(value = "idCardNumber") String idCard, @RequestParam(value = "licensePlateNumber") String licensePlateNumber){
-//        ModelAndView modelAndView =  new ModelAndView("redirect:/create-case");
-//        modelAndView.addObject("result", "DUPLICATE");
-//        return  modelAndView;
-//    }
-
-    //login
-
+//
 
     private void constructModelAndViewAttributes(HttpSession httpSession, ModelAndView modelAndView){
         if (httpSession.getAttribute("result") != null){
@@ -90,17 +79,20 @@ public class UserController {
         return modelAndView;
     }
     @PostMapping(value = "/submit-offence-case")
-    public ModelAndView submitOffenceCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
+    public ModelAndView submitOffenceCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel){
         //validate token
         //validate data
-        //persist into db
+//        //persist into db
+//        if (createOffenceCaseRequestModel.getGlobalResponse().equalsIgnoreCase("none"))
+//            return new ModelAndView("redirect:/create-case");
 
         httpSession.setAttribute("result","saved");
         List<OffenceCaseResponseModel> list = new ArrayList<>();
-        list.add(new OffenceCaseResponseModel(1,"Córdoba", "Stolen", "2022-06-02"));
-        list.add(new OffenceCaseResponseModel(2,"Adam", "Stolen", "2022-03-02"));
-        list.add(new OffenceCaseResponseModel(3,"John", "Stolen", "2022-07-02"));
-        list.add(new OffenceCaseResponseModel(4,"Downy", "Stolen", "2022-05-02"));
+        list.add(new OffenceCaseResponseModel(1,"Stolen", "Le Thi Tao", "2022-06-02"));
+        list.add(new OffenceCaseResponseModel(2,"Stolen", "Tran Thi B", "2022-03-02"));
+        list.add(new OffenceCaseResponseModel(3,"Stolen", "Nguyen Van Hau", "2022-07-02"));
+        list.add(new OffenceCaseResponseModel(4,"Wanted", "Tran Kim Kim", "2022-05-02"));
+        list.add(new OffenceCaseResponseModel(5,"Stolen", "Nguyen Van A", "2022-06-02"));
         ModelAndView modelAndView = new ModelAndView("/pages/list_cases");
         modelAndView.addObject("listCases", list);
         return modelAndView;

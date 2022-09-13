@@ -29,9 +29,9 @@ var bootstrapButtonValue = "btn-primary";
 //     $('[data-toggle="tooltip"]').tooltip();
 // }
 $(document).ready(function () {
-    var successfullText = document.getElementById("result").innerText;
+    var successfullText = document.getElementById("result");
     if (successfullText) {
-        generateSuccessfulAlertMessage(successfullText);
+        generateSuccessfulAlertMessage(successfullText.innerText);
         // $("#alertMessage").fadeOut();
         // $("#alertMessage").fadeIn();
     }
@@ -53,6 +53,7 @@ function generateSuccessfulAlertMessage(result) {
         //push this node to body
         var divContainer = document.getElementById("setMessage");
         divContainer.insertBefore(divElement, divContainer.children[0]);
+
         $("#alertMessage").fadeIn();
         $("#alertMessage").fadeOut();
         $("#alertMessage").fadeIn();

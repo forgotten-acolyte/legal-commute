@@ -46,10 +46,19 @@
     </table>
 </div>
 <script>
-    $("#alertMessage").fadeIn();
-    $("#alertMessage").fadeOut();
-    $("#alertMessage").fadeIn();
-    $("#alertMessage").fadeOut();
+    for(let i = 0; i < 10; i++){
+        $("#alertMessage").fadeIn();
+        setTimeout( function (){
+            $("#alertMessage").fadeOut();
+        }, 10000);
+
+        $("#alertMessage").fadeIn();
+        $("#alertMessage").fadeOut();
+    }
+    // $("#alertMessage").fadeIn();
+    // $("#alertMessage").fadeOut();
+    // $("#alertMessage").fadeIn();
+    // $("#alertMessage").fadeOut();
     // $("#alertMessage").fadeIn();
 </script>
 </body>
