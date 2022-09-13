@@ -22,10 +22,11 @@
 
 <!--    <h2 id="result" th:text="${result}" style="display: none;"> </h2>-->
     <h1>  Create new case </h1>
-<!--    <form onsubmit="return submittedFieldValidation(this);" method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">-->
-        <form  onsubmit=" submittedFieldValidation(this);" method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">
+<!--    <form onsubmit="return submittedFieldValidation(this);" method="post" action="/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">-->
+        <form id="form"  onsubmit="return submittedFieldValidation(this);" method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">
         <div class="container">
             <label><b>Name :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
+
             <input id="name" type="text" placeholder="Enter full name" name="name" required
                    th:field="*{createOffenceCaseRequestModel.name}">
 

@@ -75,10 +75,23 @@
 </div>
 
 <script>
-    $("#alertMessage").fadeIn();
-    $("#alertMessage").fadeOut();
-    $("#alertMessage").fadeIn();
-    $("#alertMessage").fadeOut();
+    for(int i = 0; i < 10; i++){
+        $("#alertMessage").fadeIn();
+        setTimeout( function (){
+            $("#alertMessage").fadeOut();
+        }, 10000);
+
+        $("#alertMessage").fadeIn();
+        $("#alertMessage").fadeOut();
+    }
+    // $("#alertMessage").fadeIn().delay(20000).fadeOut('slow');
+    // $("#alertMessage").fadeIn( function()
+    // {
+    //     setTimeout( function()
+    //     {
+    //         $(".notice").fadeOut("fast");
+    //     }, 2000);
+    // });
     // $("#alertMessage").fadeIn();
     //
     function changeStatus() {

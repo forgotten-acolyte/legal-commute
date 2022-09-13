@@ -29,9 +29,9 @@ var bootstrapButtonValue = "btn-primary";
 //     $('[data-toggle="tooltip"]').tooltip();
 // }
 $(document).ready(function () {
-    var successfullText = document.getElementById("result").innerText;
+    var successfullText = document.getElementById("result");
     if (successfullText) {
-        generateSuccessfulAlertMessage(successfullText);
+        generateSuccessfulAlertMessage(successfullText.innerText);
         // $("#alertMessage").fadeOut();
         // $("#alertMessage").fadeIn();
     }
