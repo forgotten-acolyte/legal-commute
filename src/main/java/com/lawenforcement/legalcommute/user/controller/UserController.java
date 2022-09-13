@@ -63,7 +63,16 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("/pages/list_cases");
         return modelAndView;
     }
-
+    @PostMapping(value="/welcome")
+    public ModelAndView welcomePage(){
+        ModelAndView modelAndView = new ModelAndView("/pages/welcome_page");
+        return modelAndView;
+    }
+    @GetMapping(value="/logout")
+    public ModelAndView logout(){
+        ModelAndView modelAndView = new ModelAndView("homepage");
+        return modelAndView;
+    }
     @PostMapping(value = "/submit-offence-case")
     public String submitOffenceCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
         //validate token
@@ -80,7 +89,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @GetMapping(value="/update-status")
+    @PostMapping(value="/update-status")
     public ModelAndView updateStatus(){
         ModelAndView modelAndView = new ModelAndView("/pages/update_status");
         return modelAndView;
