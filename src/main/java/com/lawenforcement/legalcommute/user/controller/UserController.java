@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.persistence.PostRemove;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Objects;
@@ -40,6 +41,9 @@ public class UserController {
 //        return  modelAndView;
 //    }
 
+    //login
+
+
     private void constructModelAndViewAttributes(HttpSession httpSession, ModelAndView modelAndView){
         if (httpSession.getAttribute("result") != null){
             modelAndView.addObject("result", httpSession.getAttribute("result"));
@@ -54,6 +58,11 @@ public class UserController {
         constructModelAndViewAttributes(httpSession, modelAndView);
         return modelAndView;
     }
+    @GetMapping(value="/list-cases")
+    public ModelAndView showList(){
+        ModelAndView modelAndView = new ModelAndView("/pages/list_cases");
+        return modelAndView;
+    }
 
     @PostMapping(value = "/submit-offence-case")
     public String submitOffenceCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
@@ -61,7 +70,8 @@ public class UserController {
         //validate data
         //persist into db
         httpSession.setAttribute("result","saved");
-        return "redirect:/create-case";
+        return "/pages/list_cases";
+//        return "/list-cases";
     }
 
     @GetMapping(value="/fetch-execute")

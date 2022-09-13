@@ -17,8 +17,10 @@
 <body>
 <div th:insert="/common/header :: headerForm">
 </div>
-<div id="setMessage" class="container">
-    <h2 id="result" th:text="${result}" style="display: none;"> </h2>
+<div class="container">
+<!--<div id="setMessage" class="container">-->
+
+<!--    <h2 id="result" th:text="${result}" style="display: none;"> </h2>-->
     <h1>  Create new case </h1>
 <!--    <form onsubmit="return submittedFieldValidation(this);" method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">-->
         <form  onsubmit=" submittedFieldValidation(this);" method="post" th:action="@{/submit-offence-case}" modelAttribute="createOffenceCaseRequestModel">

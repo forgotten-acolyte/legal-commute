@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en" >-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!--    <script th:src="@{js/create_case/formValidator.js}"></script>-->
+    <title>List cases</title>
+</head>
+<body>
+<div th:insert="/common/header :: headerForm">
+</div>
+<div >
+<!--    <h2 id="result" th:text="${result}" style="display: none;"> </h2>-->
+    <div class="alert alert-success" role="alert" id="alertMessage">
+        Data have been saved sucessfully
+    </div>
+    <table class = "table table-bordered table-striped table-hover table-responsive-xl">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Offence type</th>
+                <th>Date</th>
+                <th>Edit</th>
+<!--                <th>Delete</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="case: ${listCases}">
+                <td>[[${case.id}]]</td>
+                <td>[[${case.name}]]</td>
+                <td>[[${case.offenceType}]]</td>
+                <td>[[${case.date}]]</td>
+                <td>
+                    <a class="btn btn-sm btn-primary"  title="Edit this case"></a>
+                    //btn btn-sm btn-primary btn-edit
+                    <a class="fas fa-edit fa-2x icon-green"  title="Edit this case"></a>
+                </td>
+            </tr>
+            <!--<tr>
+                <td>1</td>
+                <td>Tan Trung</td>
+                <td>Wanted</td>
+                <td>9/13/2022</td>
+                <td>
+                    <a class="btn btn-sm btn-primary"  title="Edit this case"></a>
+                    //btn btn-sm btn-primary btn-edit
+&lt;!&ndash;                    <a class="fas fa-edit fa-2x icon-green"  title="Edit this case"></a>&ndash;&gt;
+                </td>
+            </tr>-->
+        </tbody>
+    </table>
+</div>
+<script>
+    $("#alertMessage").fadeIn();
+    $("#alertMessage").fadeOut();
+    $("#alertMessage").fadeIn();
+    $("#alertMessage").fadeOut();
+    // $("#alertMessage").fadeIn();
+</script>
+</body>
+</html>
