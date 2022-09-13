@@ -1,4 +1,4 @@
-package com.ecommerce.arolaz.Utils.ExceptionHandlers;
+package com.lawenforcement.legalcommute.Utils.ExceptionHandlers;
 
 import java.util.Date;
 
