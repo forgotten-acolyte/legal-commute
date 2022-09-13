@@ -1,7 +1,10 @@
 package com.lawenforcement.legalcommute.user.controller;
 
+import com.lawenforcement.legalcommute.composite_vehicle_offence.offence.model.entity.Offence;
 import com.lawenforcement.legalcommute.composite_vehicle_offence.offence.model.request.CreateOffenceCaseRequestModel;
+import com.lawenforcement.legalcommute.composite_vehicle_offence.offence.model.response.OffenceCaseResponseModel;
 import com.lawenforcement.legalcommute.composite_vehicle_offence.offence.model.response.ResultantHtmlContent;
+import com.lawenforcement.legalcommute.composite_vehicle_offence.offence.repository.OffenceRepository;
 import com.lawenforcement.legalcommute.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.persistence.PostRemove;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,6 +27,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private OffenceRepository offenceRepository;
 
     //this
 //    @PostMapping(value="/login")
@@ -59,27 +66,44 @@ public class UserController {
         return modelAndView;
     }
     @GetMapping(value="/list-cases")
+    @ModelAttribute("listCases")
     public ModelAndView showList(){
+//        List<OffenceCaseResponseModel> list = new ArrayList<>();
+//        list.add(new OffenceCaseResponseModel("Córdoba", "Stolen", "2022-06-02"));
+//        list.add(new OffenceCaseResponseModel("Adam", "Stolen", "2022-03-02"));
+//        list.add(new OffenceCaseResponseModel("John", "Stolen", "2022-07-02"));
+//        list.add(new OffenceCaseResponseModel("Downy", "Stolen", "2022-05-02"));
         ModelAndView modelAndView = new ModelAndView("/pages/list_cases");
+//        modelAndView.addObject("listCases", list);
         return modelAndView;
     }
+
     @PostMapping(value="/welcome")
     public ModelAndView welcomePage(){
         ModelAndView modelAndView = new ModelAndView("/pages/welcome_page");
         return modelAndView;
     }
+
     @GetMapping(value="/logout")
     public ModelAndView logout(){
         ModelAndView modelAndView = new ModelAndView("homepage");
         return modelAndView;
     }
     @PostMapping(value = "/submit-offence-case")
-    public String submitOffenceCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
+    public ModelAndView submitOffenceCase(HttpSession httpSession, @ModelAttribute CreateOffenceCaseRequestModel createOffenceCaseRequestModel, Model model){
         //validate token
         //validate data
         //persist into db
+
         httpSession.setAttribute("result","saved");
-        return "/pages/list_cases";
+        List<OffenceCaseResponseModel> list = new ArrayList<>();
+        list.add(new OffenceCaseResponseModel(1,"Córdoba", "Stolen", "2022-06-02"));
+        list.add(new OffenceCaseResponseModel(2,"Adam", "Stolen", "2022-03-02"));
+        list.add(new OffenceCaseResponseModel(3,"John", "Stolen", "2022-07-02"));
+        list.add(new OffenceCaseResponseModel(4,"Downy", "Stolen", "2022-05-02"));
+        ModelAndView modelAndView = new ModelAndView("/pages/list_cases");
+        modelAndView.addObject("listCases", list);
+        return modelAndView;
 //        return "/list-cases";
     }
 

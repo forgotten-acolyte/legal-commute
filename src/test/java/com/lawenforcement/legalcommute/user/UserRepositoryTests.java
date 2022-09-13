@@ -16,12 +16,12 @@ public class UserRepositoryTests {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private TestEntityManager testEntityManager;
+//    @Autowired
+//    private TestEntityManager testEntityManager;
 
     @Test
     public void testCreateUser(){
-        testEntityManager.
+//        testEntityManager.
 
     }
 }
