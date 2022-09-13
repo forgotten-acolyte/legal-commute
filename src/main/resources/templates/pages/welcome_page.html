@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+<div th:insert="/common/header :: headerForm"> </div>
+<div class="container">
+    <div class="alert alert-success">
+        <strong>Group 10</strong><br>
+    </div>
+
+    <div class="alert alert-info">
+        <strong>Members:</strong><br>
+        1. Lộ Linh Chi <br>
+        2. Dương Vịnh Nghi <br>
+        3. Hà Minh Duy <br>
+        4. Trần Minh Long <br>
+        5. Phạm Trần Tấn Trung <br>
+    </div>
+        <div>
+            <img th:src="@{/imgs/logog.jpg}" class="rounded mx-auto d-block" width="300" height="300" alt="logo-group">
+        </div>
+</div>
+</body>
+</html>

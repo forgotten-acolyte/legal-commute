@@ -13,13 +13,13 @@
 
 <body th:fragment="loginForm">
 
-<form action="#" method="post">
+<form th:action="@{/welcome}" method="post">
     <div class="imgcontainer">
         <img src="/imgs/avatar.png" alt="Avatar" class="avatar">
     </div>
-    l
+
     <!--            <div class="container">-->
-    <label l> <b>Username :</b></label>
+    <label> <b>Username :</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
 
     <label><b>Password :</b></label>
@@ -28,7 +28,7 @@
     <button type="submit">Login</button>
 
 
-    <script src="./js/get_api.js"></script>
+<!--    <script src="./js/get_api.js"></script>-->
 
 </form>
 </body>

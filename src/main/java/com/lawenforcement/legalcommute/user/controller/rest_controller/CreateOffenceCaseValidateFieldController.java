@@ -21,8 +21,8 @@ public class CreateOffenceCaseValidateFieldController {
         //1. saved
         //2. updlicate
         //3.
-        return  DUPLICATE;
+//        return  DUPLICATE;
+        return OK;
 //        return OK;
-//        return INCORRECT;
     }
 }
