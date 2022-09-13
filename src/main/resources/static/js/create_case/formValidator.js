@@ -53,6 +53,7 @@ function generateSuccessfulAlertMessage(result) {
         //push this node to body
         var divContainer = document.getElementById("setMessage");
         divContainer.insertBefore(divElement, divContainer.children[0]);
+
         $("#alertMessage").fadeIn();
         $("#alertMessage").fadeOut();
         $("#alertMessage").fadeIn();

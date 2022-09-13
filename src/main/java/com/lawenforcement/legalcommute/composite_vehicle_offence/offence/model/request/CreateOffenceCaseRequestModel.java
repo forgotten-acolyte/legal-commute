@@ -16,7 +16,7 @@ public class CreateOffenceCaseRequestModel implements Serializable {
      private static final long serialVersionUID = 1L;
     //name idNumber phone licensePlateNumber area offenceType
      private String name;
-     private byte idNumber;
+     private String idNumber;
      private String phone;
      private String licensePlateNumber;
      private String offenceType;
