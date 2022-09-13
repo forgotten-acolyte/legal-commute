@@ -88,10 +88,10 @@ public class UserController {
 
         httpSession.setAttribute("result","saved");
         List<OffenceCaseResponseModel> list = new ArrayList<>();
-        list.add(new OffenceCaseResponseModel(1,"Córdoba", "Stolen", "2022-06-02"));
-        list.add(new OffenceCaseResponseModel(2,"Adam", "Stolen", "2022-03-02"));
-        list.add(new OffenceCaseResponseModel(3,"John", "Stolen", "2022-07-02"));
-        list.add(new OffenceCaseResponseModel(4,"Downy", "Stolen", "2022-05-02"));
+        list.add(new OffenceCaseResponseModel(1,"Stolen", "Nguyen Van A", "2022-06-02"));
+        list.add(new OffenceCaseResponseModel(2,"Stolen", "Tran Thi B", "2022-03-02"));
+        list.add(new OffenceCaseResponseModel(3,"Stolen", "Nguyen Van Hau", "2022-07-02"));
+        list.add(new OffenceCaseResponseModel(4,"Wanted", "Tran Kim Kim", "2022-05-02"));
         ModelAndView modelAndView = new ModelAndView("/pages/list_cases");
         modelAndView.addObject("listCases", list);
         return modelAndView;
